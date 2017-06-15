@@ -160,6 +160,9 @@ class Game extends React.Component {
     if (this.state.playVs === "") {
       return "Select an opponent.";
     }
+    if (this.state.playVs === "computer" && this.state.playAs === "") {
+      return "Select your player.";
+    }
     if (this.state.gameStarted === false) {
       return "Click 'Start Game!' to begin.";
     }
