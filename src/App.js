@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import $ from 'jquery';
 
-// <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
 class Header extends React.Component {
   render() {
     return (
@@ -17,9 +15,6 @@ class Header extends React.Component {
 }
 
 class GameBox extends React.Component {
-  /* constructor (props) {
-   *   super(props);
-   * }*/
   render() {
     let winClass = this.props.winner ? "gameBoxWinner" : "";
     return (
@@ -33,9 +28,6 @@ class GameBox extends React.Component {
 }
 
 class GameBoard extends React.Component {
-  /* constructor (props) {
-   *   super(props);
-   * }*/
   renderBox(i) {
     let winner = false;
     if (this.props.winMarks) {
@@ -82,9 +74,6 @@ class GameStatus extends React.Component {
 }
 
 class GameUtilities extends React.Component {
-  /* constructor(props) {
-   *   super(props);
-   * }*/
   render() {
     let readyToStart = false;
     if (!this.props.gameStarted && this.props.playVs === "player") readyToStart = true;
@@ -157,7 +146,7 @@ class Game extends React.Component {
     this.onPlayAsClick = this.onPlayAsClick.bind(this);
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.gameStarted != this.state.gameStarted && this.state.gameStarted) {
+    if (prevState.gameStarted !== this.state.gameStarted && this.state.gameStarted) {
       $('html, body').animate({
         scrollTop: $(".gameBoard").offset().top
       }, 1000);
@@ -325,15 +314,13 @@ function getNextComputerMove(marks, computerMarkChar) {
   var winningMove = getWinningMove(marks, computerMarkChar);
   var losingMove = getWinningMove(marks, otherPlayer(computerMarkChar));  // Lose if player makes this move
   var emptyMarks = getEmptyMarks(marks);
-  if (winningMove != -1) return winningMove;  // Win the game, computer!
-  else if (losingMove != -1) return losingMove;  // Block the player from making this move
+  if (winningMove !== -1) return winningMove;  // Win the game, computer!
+  else if (losingMove !== -1) return losingMove;  // Block the player from making this move
   else return emptyMarks[Math.floor(Math.random() * emptyMarks.length)];
 }
 
 function otherPlayer(markChar) {
   return markChar === "X" ? "O" : "X";
 }
-
-/* export default App;*/
 
 ReactDOM.render(<App />, document.getElementById('root'));
