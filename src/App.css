@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body {
+  background-color: #632;
+}
+
+.gameUtilities, .gameStatus {
+  max-width: 600px;
+}
+
+.gameUtilButton {
+  box-shadow: 0px 3px #555;
+  -webkit-box-shadow: 0px 3px #555;
+  /* transition-duration: 0s; */
+  margin-bottom: 5px !important;
+}
+
+.gameUtilButton:focus, .gameUtilButton.focus {
+  box-shadow: 0px 3px #555;
+  -webkit-box-shadow: 0px 3px #555;
+}
+
+.gameUtilButton:active, .gameUtilButton.active {
+  box-shadow: 0px -3px #555;
+  -webkit-box-shadow: 0px -3px #555;
+  top: 0px;
+  left: 0px;
+  transform: translateY(3px);
+}
+
+.gameBoard {
+  border: 3px solid #333;
+  background-color: #666;
+  height: 360px;
+  max-width: 360px;
+}
+
+.gameBoard .row {
+  /* height: 33.333%; */
+}
+
+.gameBoard .col {
+}
+
+.gameBox {
+}
+
+.gameBox button {
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'Indie Flower', cursive;
+  font-size: 42px;
+}
+
+.gameBox button,
+.gameBox button:hover,
+.gameBox button:active {
+  background-color: #233;
+  border-color: #466;
+}
+
+.gameBox button.gameBoxWinner {
+  background-color: #283;
+}
